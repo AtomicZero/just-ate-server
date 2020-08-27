@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import mongoose from 'mongoose';
 
+import routes from './routes';
 import models from './models';
 import { PORT, DB_URI, MONGOOSE_OPTIONS } from './config';
 
@@ -12,6 +13,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cors());
+
+app.use('/api', routes);
 
 mongoose.connect(DB_URI, MONGOOSE_OPTIONS);
 
