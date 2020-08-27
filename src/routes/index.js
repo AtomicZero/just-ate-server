@@ -1,13 +1,18 @@
 import express from 'express';
 
+import models from '../models';
+
 const router = express.Router();
 
-const getAllRestaurants = (req, res) => {
-  res.json({ res: 'all restaurants' });
+const getAllRestaurants = async (_, res) => {
+  const restaurants = await models.restaurant.find({});
+  res.json({ restaurants });
 };
 
-const getAllRestaurantById = (req, res) => {
-  res.json({ res: 'restaurant by id' });
+const getAllRestaurantById = async (req, res) => {
+  const { id } = req.params;
+  const restaurant = await models.restaurant.findById(id);
+  res.json({ restaurant });
 };
 
 router.get('/restaurants', getAllRestaurants);

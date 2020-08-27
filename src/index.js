@@ -4,7 +4,6 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 
 import routes from './routes';
-import models from './models';
 import { PORT, DB_URI, MONGOOSE_OPTIONS } from './config';
 
 const app = express();
