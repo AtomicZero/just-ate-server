@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import mongoose from 'mongoose';
 
+import models from './models';
 import { PORT, DB_URI, MONGOOSE_OPTIONS } from './config';
 
 const app = express();
