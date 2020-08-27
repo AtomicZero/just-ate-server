@@ -1,0 +1,33 @@
+{
+  "name": "just-ate-server",
+  "version": "1.0.0",
+  "description": "Node Express server for the Just-Ate App",
+  "main": "index.js",
+  "scripts": {
+    "babel:build": "babel src --out-dir dist --ignore \"src/**/*.spec.js\",\"src/**/*.test.js\",\"src/**/*.data.js\"",
+    "build": "npm run clean && npm run babel:build",
+    "clean": "rm -rf dist",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "start": "npm run build && node dist/index.js",
+    "start:dev": "NODE_ENV=development nodemon -e js --watch src --exec \"npm run start\"",
+    "test": "jest --verbose --coverage",
+    "test:watch": "jest --verbose --watchAll"
+  },
+  "keywords": [],
+  "author": "Suraj Verma",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.4",
+    "@babel/plugin-transform-runtime": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "eslint": "^7.7.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.11.2"
+  }
+}
